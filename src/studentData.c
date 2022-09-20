@@ -86,7 +86,8 @@ void student_data_save(struct students studentData)
     FILE* studentFile = fopen(FILE_NAME, FILE_WRITE);
 
     // For each student, write out the data
-    for (int i = 0; i < 27; i++)
+    int i;
+    for (i = 0; i < 27; i++)
     {
         fprintf(studentFile, "%s,%s,%d,%f,%d,%d,%d",
             studentData.students[i].userID,
