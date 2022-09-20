@@ -7,6 +7,9 @@
  * 
  */
 
+#ifndef __LOGGER.H__
+#define __LOGGER.H__
+
 #include <stdio.h>
 #include <string.h>
 
@@ -36,3 +39,6 @@ int log_init();
  * @return int Success (1) / Failure (0)
  */
 int log_close();
+
+
+#endif

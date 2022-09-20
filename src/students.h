@@ -7,8 +7,13 @@
  * 
  */
 
+#ifndef __STUDENTS.H__
+#define __STUDENTS.H__
+
 #include "student.h"
 
 struct students {
     struct student students[27];
 };
+
+#endif 

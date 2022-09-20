@@ -7,6 +7,9 @@
  * 
  */
 
+#ifndef __STUDENT.H__
+#define __STUDENT.H__
+
 #include <string.h>
 #include <time.h>
 
@@ -37,3 +40,6 @@ struct student {
     time_t totalActiveTime;
 
 };
+
+#endif
+
