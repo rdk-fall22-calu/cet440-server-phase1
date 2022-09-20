@@ -24,8 +24,8 @@ int main() {
 
     // Initialize Student Data
     struct students studentData;
-    if (student_file_exists)
-        studentData = student_file_load();
+    if (student_data_exists)
+        studentData = student_data_load();
     else {
         studentData = student_data_init();
     }
@@ -35,7 +35,7 @@ int main() {
     // Loop to poll activity and update data
 
     // Cleanup
-    student_file_save(studentData);
+    student_data_save(studentData);
 
     // Exit Successfully
     return 0;
