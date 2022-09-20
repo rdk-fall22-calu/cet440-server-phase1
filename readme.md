@@ -20,4 +20,4 @@ It is defined as:
 | time_t        | totalActiveTime   | Total amount of time the user was logged in           |
 
 The shared memory for this project is defined in [students.h](src/students.h).
-It is defined as an array of ==Student==, as specified above.
+It is defined as an array of ```Student```, as specified above.
