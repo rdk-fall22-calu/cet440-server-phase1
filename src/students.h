@@ -7,8 +7,8 @@
  * 
  */
 
-#ifndef __STUDENTS.H__
-#define __STUDENTS.H__
+#ifndef __STUDENTS_H__
+#define __STUDENTS_H__
 
 #include "student.h"
 

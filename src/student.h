@@ -7,8 +7,8 @@
  * 
  */
 
-#ifndef __STUDENT.H__
-#define __STUDENT.H__
+#ifndef __STUDENT_H__
+#define __STUDENT_H__
 
 #include <string.h>
 #include <time.h>

@@ -7,8 +7,8 @@
  * 
  */
 
-#ifndef __LOGGER.H__
-#define __LOGGER.H__
+#ifndef __LOGGER_H__
+#define __LOGGER_H__
 
 #include <stdio.h>
 #include <string.h>
