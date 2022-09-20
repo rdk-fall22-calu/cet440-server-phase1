@@ -14,20 +14,20 @@
  * @brief 
  * 
  */
-struct students student_file_load();
+struct students student_data_load();
 
 /**
  * @brief 
  * 
  */
-void student_file_save(struct students studentData);
+void student_data_save(struct students studentData);
 
 /**
  * @brief Checks if the 
  * 
  * @return int 
  */
-int student_file_exists();
+int student_data_exists();
 
 
 struct students student_data_init();
