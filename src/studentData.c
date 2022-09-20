@@ -126,10 +126,28 @@ struct students student_data_init()
     // Loop for data in file
     char line[FILE_BUFFER_SIZE];
     char *token;
+    srand(time(0));
+
+    int currentStudent = 0;
     while (fgets(line, FILE_BUFFER_SIZE, namesFile) != NULL)
     {
-        token = strtok(line, " ");
+        token = strtok(line,DELIMITER );
+        studentData.students[currentStudent].userID = token;
         
+        token = strtok(NULL, DELIMITER);
+        studentData.students[currentStudent].name = token;
+        
+        studentData.students[currentStudent].age = (rand() % 5) +18;
+        
+        studentData.students[currentStudent].gpa = (float)((rand() % 15)+25) / 10.0f;
+           
+        studentData.students[currentStudent].status = 0;
+       
+        studentData.students[currentStudent].lastLoginTime = 0; 
+        
+        studentData.students[currentStudent].totalActiveTime = 0;
+        
+        currentStudent++;
     }
 
     // Close the file
