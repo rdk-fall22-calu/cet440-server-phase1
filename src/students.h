@@ -10,5 +10,5 @@
 #include "student.h"
 
 struct students {
-    student students[27];
+    struct student students[27];
 };

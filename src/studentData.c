@@ -42,31 +42,31 @@ struct students student_data_load()
         token = strtok(line, DELIMITER);
 
         // Get the User ID
-        studentData.students[currentStudent]->userID = token;
+        studentData.students[currentStudent].userID = token;
 
         // Get the Name
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent]->name = token;
+        studentData.students[currentStudent].name = token;
 
         // Get the Age
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent]->age = atoi(token);
+        studentData.students[currentStudent].age = atoi(token);
 
         // Get the GPA
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent]->gpa = atof(token);
+        studentData.students[currentStudent].gpa = atof(token);
 
         // Get the Status
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent]->status = atoi(token);
+        studentData.students[currentStudent].status = atoi(token);
 
         // Get the Last Login Time
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent]->lastLoginTime = atol(token);
+        studentData.students[currentStudent].lastLoginTime = atol(token);
 
         // Get the Total Time Active
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent]->totalActiveTime = atol(token);
+        studentData.students[currentStudent].totalActiveTime = atol(token);
         
         // Increment Student Counter
         currentStudent++;
@@ -89,13 +89,13 @@ void student_data_save(struct students studentData)
     for (int i = 0; i < 27; i++)
     {
         fprintf(studentFile, "%s,%s,%d,%f,%d,%d,%d",
-            studentData.students[i]->userID,
-            studentData.students[i]->name,
-            studentData.students[i]->age,
-            studentData.students[i]->gpa,
-            studentData.students[i]->status,
-            studentData.students[i]->lastLoginTime,
-            studentData.students[i]->totalActiveTime);
+            studentData.students[i].userID,
+            studentData.students[i].name,
+            studentData.students[i].age,
+            studentData.students[i].gpa,
+            studentData.students[i].status,
+            studentData.students[i].lastLoginTime,
+            studentData.students[i].totalActiveTime);
     }
 
     // Close the file
