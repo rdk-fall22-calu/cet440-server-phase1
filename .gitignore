@@ -1,3 +1,7 @@
+# Ignore Folders
+build
+examples
+
 # Prerequisites
 *.d
 
