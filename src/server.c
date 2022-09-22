@@ -15,7 +15,6 @@
 
 
 #include "students.h"
-#include "student.h"
 #include "studentData.h"
 
 int main() {

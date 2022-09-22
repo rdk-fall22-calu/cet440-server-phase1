@@ -11,7 +11,6 @@
 #include <stdlib.h>
 
 #include "students.h"
-#include "student.h"
 #include "string.h"
 
 #define NAMES_FILE "names.txt"

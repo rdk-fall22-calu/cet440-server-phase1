@@ -8,7 +8,6 @@
  */
 
 #include "students.h"
-#include "student.h"
 
 /**
  * @brief Loads data from the storage file
