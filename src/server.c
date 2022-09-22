@@ -16,11 +16,17 @@
 #include "students.h"
 #include "studentData.h"
 
+#define TRUE 1
+#define FALSE 0
+
 #define size 4096 //block memory size
 #define shmkey 0x7700 + 01 //key for shmget()
 #define IPC_RESULT_ERROR (-1) //error returning -1 if sharded id could not be created
 
 int main() {
+
+    // Initialize tracking changes
+    int changesMade = FALSE;
 
     // Initialize Student Data
     struct students studentData;
@@ -30,6 +36,7 @@ int main() {
     }
     else {
         studentData = student_data_init();
+        changesMade = TRUE;
     }
 
     // Create the Shared Memory space for student data
@@ -53,6 +60,7 @@ int main() {
                     // Do nothing
                 // If user status is inactive
                     // Set user status to active
+                    // Update last login time
             // If user is not in active list
                 // If user status is active
                     // Set user to inactive
@@ -62,7 +70,11 @@ int main() {
 
 
         // Save the data after making any changes
-        student_data_save(studentData);
+        if (changesMade)
+        {
+            student_data_save(studentData);
+            changesMade = FALSE;
+        }
     }
 
     // Exit Successfully
