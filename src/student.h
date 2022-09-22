@@ -19,10 +19,10 @@
 struct student {
 
     // User ID, the PennWest Email ID
-    char *userID;
+    char userID[10];
     
     // Name of the User, in "FirstName LastName" format
-    char *name;
+    char name[50];
 
     // Random Age, interval [18,22]
     int age;

@@ -42,11 +42,11 @@ struct students student_data_load()
         token = strtok(line, DELIMITER);
 
         // Get the User ID
-        studentData.students[currentStudent].userID = token;
+        strcpy(studentData.students[currentStudent].userID, token);
 
         // Get the Name
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent].name = token;
+        strcpy(studentData.students[currentStudent].name, token);
 
         // Get the Age
         token = strtok(NULL, DELIMITER);
@@ -89,7 +89,7 @@ void student_data_save(struct students studentData)
     int i;
     for (i = 0; i < 27; i++)
     {
-        fprintf(studentFile, "%s,%s,%d,%f,%d,%d,%d",
+        fprintf(studentFile, "%s,%s,%d,%f,%d,%d,%d\n",
             studentData.students[i].userID,
             studentData.students[i].name,
             studentData.students[i].age,
@@ -131,15 +131,16 @@ struct students student_data_init()
     int currentStudent = 0;
     while (fgets(line, FILE_BUFFER_SIZE, namesFile) != NULL)
     {
-        token = strtok(line,DELIMITER );
-        studentData.students[currentStudent].userID = token;
+        token = strtok(line, " ");
+        strcpy(studentData.students[currentStudent].userID, token);
         
-        token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent].name = token;
+        token = strtok(NULL, "\n");
+        strcpy(studentData.students[currentStudent].name, token);
         
         studentData.students[currentStudent].age = (rand() % 5) +18;
         
-        studentData.students[currentStudent].gpa = (float)((rand() % 15)+25) / 10.0f;
+        studentData.students[currentStudent].gpa = rand() % 16 + 25;
+        studentData.students[currentStudent].gpa /= 10;
            
         studentData.students[currentStudent].status = 0;
        

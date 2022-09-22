@@ -24,8 +24,10 @@ int main() {
 
     // Initialize Student Data
     struct students studentData;
-    if (student_data_exists)
+    if (student_data_exists())
+    {
         studentData = student_data_load();
+    }
     else {
         studentData = student_data_init();
     }
