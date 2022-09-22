@@ -22,8 +22,6 @@
 
 int main() {
 
-    // Initialize the Logger
-
     // Initialize Student Data
     struct students studentData;
     if (student_data_exists())
@@ -45,9 +43,27 @@ int main() {
         printf("shmget() successful, shared_memory_id = %i\n", shared_memory_id);
 
     // Loop to poll activity and update data
+    while ( 1 )
+    {
+        // Run who command to get all active users
 
-    // Cleanup
-    student_data_save(studentData);
+        // Loop through all users in student data
+            // If user is in active list
+                // If user status is active
+                    // Do nothing
+                // If user status is inactive
+                    // Set user status to active
+            // If user is not in active list
+                // If user status is active
+                    // Set user to inactive
+                    // Calculate how long they were on the server
+                // If user status is inactive
+                    // Do nothing
+
+
+        // Save the data after making any changes
+        student_data_save(studentData);
+    }
 
     // Exit Successfully
     return 0;
