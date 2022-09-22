@@ -36,7 +36,7 @@ struct student {
     time_t lastLoginTime;
 
     // Total Time spent Active on Server
-    time_t totalActiveTime;
+    int totalActiveTime;
 
 };
 
