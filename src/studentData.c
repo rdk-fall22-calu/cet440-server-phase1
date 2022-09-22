@@ -88,7 +88,7 @@ void student_data_save(struct students studentData)
     int i;
     for (i = 0; i < 27; i++)
     {
-        fprintf(studentFile, "%s,%s,%d,%f,%d,%d,%d\n",
+        fprintf(studentFile, "%s,%s,%d,%1.1f,%d,%d,%d\n",
             studentData.students[i].userID,
             studentData.students[i].name,
             studentData.students[i].age,
