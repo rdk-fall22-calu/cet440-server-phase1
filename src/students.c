@@ -12,6 +12,7 @@
 
 #include "students.h"
 #include <time.h>
+#include <string.h>
 
 int student_is_active(struct student s)
 {
