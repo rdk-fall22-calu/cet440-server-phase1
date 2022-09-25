@@ -14,6 +14,7 @@
 #include <sys/shm.h>
 #include <errno.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "shared-memory.h"
 #include "students.h"
@@ -71,7 +72,7 @@ void cpy_student_data_to_shared_memory(struct students students)
     {
         copy_student(students.students[i], shared_data->students[i]);
     }
-    fprintf("Shared User: %s, Age: %d\n", shared_data->students[0].userID, shared_data->students[0].age);
+    printf("Shared User: %s, Age: %d\n", shared_data->students[0].userID, shared_data->students[0].age);
 }
 
 #endif
