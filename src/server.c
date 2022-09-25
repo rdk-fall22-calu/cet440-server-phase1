@@ -8,6 +8,7 @@
  */
 
 #include <stdio.h>		    // for standard system I/O stuff
+#include <stdlib.h>
 #include <errno.h>		    // for error handling on system call
 #include <sys/types.h>		// for system defined types
 #include<unistd.h>          // for sleep
@@ -23,7 +24,7 @@
 int main() {
 
     // Initialize tracking changes
-    int changesMade = FALSE;
+    int changes_made = FALSE;
 
     // Initialize Student Data
     struct students student_data;
@@ -34,42 +35,72 @@ int main() {
     else {
         student_data = student_data_init();
     }
-    changesMade = TRUE;
+    changes_made = TRUE;
     
     // Create the shared memory
     setup_shared_memory();
-    
+
+    // Setup who command piping to obtain active users list
+    int active_users_count = 0;
+    char active_users[27][7];
+    FILE *fpipe;
+    char *command = "who";
+    char result[1024] = {0x0};
+   
     // Loop to poll activity and update data
-    int counter = 30;
-    while ( counter > 0 )
+    while ( 1 )
     {
         // Run who command to get all active users
+        if ( 0 == (fpipe = (FILE*)popen(command, "r")))
+        {
+            perror("popen() failed.");
+            exit(EXIT_FAILURE);
+        }
+
+        active_users_count = 0;
+        while( fgets(result, sizeof(result), fpipe) != NULL )
+        {
+            strcpy(active_users[active_users_count], strtok(result, " "));
+            active_users_count++;
+            printf("%s\n", active_users[active_users_count]);
+        }
 
         // Loop through all users in student data
-            // If user is in active list
-                // If user status is active
-                    // Do nothing
-                // If user status is inactive
-                    // Set user status to active
-                    // Update last login time
-            // If user is not in active list
-                // If user status is active
-                    // Set user to inactive
-                    // Calculate how long they were on the server
-                // If user status is inactive
-                    // Do nothing
+        for (int i = 0; i < NUM_STUDENTS; i++)
+        {
+            struct student student = student_data.students[i];
+            for (int j = 0; j < active_users_count; j++)
+            {
+                if (strcmp(student.userID, active_users[j]))
+                {
+                    if (student.status == INACTIVE)
+                    {
+                        student_set_active(student);
+                        changes_made = TRUE;
+                    }
+                } 
+                else 
+                {
+                    if (student.status == ACTIVE)
+                    {
+                        student_set_inactive(student);
+                        changes_made = TRUE;
+                    }
+                }
+            }
+        }
 
         // Save the data after making any changes
-        if (changesMade)
+        if (changes_made)
         {
             student_data_save(student_data);
-            changesMade = FALSE;
+            changes_made = FALSE;
         }
 
         // Update the shared memory
         cpy_student_data_to_shared_memory(student_data);
 
-        counter--;
+        // Sleep for 1 second
         sleep(1);
     }
 

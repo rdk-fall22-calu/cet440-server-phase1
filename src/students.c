@@ -31,16 +31,5 @@ int student_set_inactive(struct student s)
     s.totalActiveTime += time(NULL) - s.lastLoginTime;
 }
 
-void copy_student(struct student s2, struct student s1)
-{
-    strcpy(s2.userID, s1.userID);
-    strcpy(s2.name, s1.name);
-    s2.age = s1.age;
-    s2.gpa = s1.gpa;
-    s2.status = s1.status;
-    s2.lastLoginTime = s1.lastLoginTime;
-    s2.totalActiveTime = s1.totalActiveTime;
-}
-
 
 #endif
