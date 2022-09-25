@@ -39,7 +39,7 @@ int main() {
     // Create the shared memory
     setup_shared_memory();
 
-    printf("\nStudent User: %n\n", student_data.students[0].userID);
+    printf("\nStudent User: %s\n", student_data.students[0].userID);
     
     // Loop to poll activity and update data
     int counter = 30;
@@ -71,7 +71,7 @@ int main() {
         // Update the shared memory
         cpy_student_data_to_shared_memory(student_data);
 
-        printf("\nStudent User: %n\n", student_data.students[0].userID);
+        printf("\nStudent User: %s\n", student_data.students[0].userID);
 
         counter--;
         sleep(1);
