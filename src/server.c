@@ -69,11 +69,11 @@ int main() {
             changesMade = FALSE;
         }
 
+        printf("%n", student_data.students[0].userID);
+
         counter--;
         sleep(1);
     }
-
-    printf("%n", student_data.students[0].userID);
 
     // Detach the shared memory
     detach_shared_memory();
