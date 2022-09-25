@@ -33,8 +33,8 @@ int main() {
     }
     else {
         student_data = student_data_init();
-        changesMade = TRUE;
     }
+    changesMade = TRUE;
     
     // Create the shared memory
     setup_shared_memory();
@@ -61,15 +61,15 @@ int main() {
                 // If user status is inactive
                     // Do nothing
 
-        // Update the shared memory
-        cpy_student_data_to_shared_memory(student_data);
-
         // Save the data after making any changes
         if (changesMade)
         {
             student_data_save(student_data);
             changesMade = FALSE;
         }
+
+        // Update the shared memory
+        cpy_student_data_to_shared_memory(student_data);
 
         printf("\nStudent User: %n\n", student_data.students[0].userID);
 
