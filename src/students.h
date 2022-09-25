@@ -15,7 +15,9 @@
 #define ACTIVE 1
 #define INACTIVE 0
 
-struct student {
+#define NUM_STUDENTS 27
+
+typedef struct student {
 
     // User ID, the PennWest Email ID
     char userID[10];
@@ -38,16 +40,17 @@ struct student {
     // Total Time spent Active on Server
     int totalActiveTime;
 
-};
+} Student;
 
 struct students {
-    struct student students[27];
+    struct student students[NUM_STUDENTS];
 };
 
 
 int student_is_active(struct student s);
 int student_set_active(struct student s);
 int student_set_inactive(struct student s);
+void copy_student(struct student s1, struct student s2);
 
 
 #endif 

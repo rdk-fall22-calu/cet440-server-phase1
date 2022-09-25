@@ -1,6 +1,7 @@
 # Ignore Folders
 build
 examples
+.vscode
 
 # Prerequisites
 *.d
