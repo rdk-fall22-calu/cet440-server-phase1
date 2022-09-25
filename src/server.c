@@ -69,7 +69,7 @@ int main() {
             changesMade = FALSE;
         }
 
-        printf("%n", student_data.students[0].userID);
+        printf("User: %n\n", student_data.students[0].userID);
 
         counter--;
         sleep(1);
