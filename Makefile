@@ -1,5 +1,5 @@
 build: update-repo
-	gcc src/*.h src/*.c -o build/server
+	gcc -std=c99 src/*.h src/*.c -o build/server
 
 update-repo:
 	git pull

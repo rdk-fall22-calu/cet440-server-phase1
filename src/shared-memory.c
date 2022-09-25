@@ -12,6 +12,8 @@
 
 #include <sys/ipc.h>
 #include <sys/shm.h>
+#include <errno.h>
+#include <string.h>
 
 #include "shared-memory.h"
 #include "students.h"
@@ -28,7 +30,7 @@ void setup_shared_memory()
     
     // Ensure the shared memory ID was created 
     if (shared_memory_id == IPC_RESULT_ERROR){                                        
-        printf("Error: shmget() failed, errno = %i\n", errno);
+        fprintf("Error: shmget() failed, errno = %i\n", errno);
         perror("shmget()");
     }
     //else
@@ -39,7 +41,7 @@ void setup_shared_memory()
     shared_data = (struct students) shmat( shared_memory_id, 0, 0 );
     
     // Check shared memory created successfully
-    if ( (int) structure_address == IPC_RESULT_ERROR )		                // check shmat() return value
+    if ( (int) shared_data == IPC_RESULT_ERROR )		                
         {
             printf( "Error: shmat() failed, errno = %i\n", errno );
             perror( "shmat()" );
