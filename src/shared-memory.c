@@ -70,7 +70,6 @@ void cpy_student_data_to_shared_memory(struct students students)
 {
     for (int i = 0; i < NUM_STUDENTS; i++)
     {
-        copy_student(shared_data->students[i], students.students[i]);
         shared_data->students[i] = students.students[i];
     }
 }
