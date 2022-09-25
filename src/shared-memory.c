@@ -38,7 +38,7 @@ void setup_shared_memory()
 
     // Allocate the shared memory
     shared_memory_address = (int) shmat( shared_memory_id, 0, 0 );
-    shared_data = (struct students) shmat( shared_memory_id, 0, 0 );
+    shared_data = (struct students *) shmat( shared_memory_id, 0, 0 );
     
     // Check shared memory created successfully
     if ( (int) shared_data == IPC_RESULT_ERROR )		                
@@ -69,7 +69,7 @@ void cpy_student_data_to_shared_memory(struct students students)
 {
     for (int i = 0; i < NUM_STUDENTS; i++)
     {
-        copy_student(shared_data[i], students[i]);
+        copy_student(shared_data->students[i], students.students[i]);
     }
 }
 
