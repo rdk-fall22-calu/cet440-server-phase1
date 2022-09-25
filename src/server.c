@@ -48,7 +48,7 @@ int main() {
     char result[1024] = {0x0};
    
     // Loop to poll activity and update data
-    while ( 1 )
+    while ( TRUE )
     {
         // Run who command to get all active users
         if ( 0 == (fpipe = (FILE*)popen(command, "r")))
@@ -64,6 +64,8 @@ int main() {
             active_users_count++;
             printf("%s\n", active_users[active_users_count]);
         }
+        
+        pclose(fpipe);
 
         // Loop through all users in student data
         for (int i = 0; i < NUM_STUDENTS; i++)
