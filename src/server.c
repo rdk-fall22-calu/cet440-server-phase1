@@ -42,7 +42,7 @@ int main() {
 
     // Setup who command piping to obtain active users list
     int active_users_count = 0;
-    char active_users[27][7];
+    char active_users[27][10];
     FILE *fpipe;
     char *command = "who";
     char result[1024] = {0x0};
