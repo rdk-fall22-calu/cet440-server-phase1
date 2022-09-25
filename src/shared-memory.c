@@ -71,7 +71,7 @@ void cpy_student_data_to_shared_memory(struct students students)
     {
         copy_student(students.students[i], shared_data->students[i]);
     }
-    printf("Shared User: %n\n", shared_data.students[0].userID);
+    printf("Shared User: %n\n", shared_data->students[0].userID);
 }
 
 #endif
