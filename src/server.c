@@ -38,6 +38,8 @@ int main() {
     
     // Create the shared memory
     setup_shared_memory();
+
+    printf("\nStudent User: %n\n", student_data.students[0].userID);
     
     // Loop to poll activity and update data
     int counter = 30;
