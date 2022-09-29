@@ -115,7 +115,6 @@ int main() {
 
         // Sleep for 1 second
         sleep(1);
-        cont = FALSE;
     }
 
     // Detach the shared memory
