@@ -9,6 +9,7 @@
 
 #include <stdio.h>		    // for standard system I/O stuff
 #include <stdlib.h>
+#include <string.h>
 #include <errno.h>		    // for error handling on system call
 #include <sys/types.h>		// for system defined types
 #include <unistd.h>          // for sleep
