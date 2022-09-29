@@ -76,7 +76,9 @@ int main() {
             for (int j = 0; j < active_users_count; j++)
             {
                 char *user = active_users[j];
-                if (strcmp(student.userID, user) == 0)
+                int res = strcmp(student.userID, user);
+                printf("Comparing %s to %s: %d", student.userID, user, res);
+                if (res == 0)
                 {
                     if (student.status == INACTIVE)
                     {
