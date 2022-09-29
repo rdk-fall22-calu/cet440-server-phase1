@@ -62,7 +62,6 @@ int main() {
         {
             strcpy(active_users[active_users_count], strtok(result, " "));
             active_users_count++;
-            printf("%s\n", active_users[active_users_count]);
         }
         
         pclose(fpipe);
