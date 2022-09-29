@@ -96,6 +96,14 @@ void student_data_save(struct students studentData)
             studentData.students[i].status,
             studentData.students[i].lastLoginTime,
             studentData.students[i].totalActiveTime);
+        printf("%s,%s,%d,%1.1f,%d,%d,%d\n",
+            studentData.students[i].userID,
+            studentData.students[i].name,
+            studentData.students[i].age,
+            studentData.students[i].gpa,
+            studentData.students[i].status,
+            studentData.students[i].lastLoginTime,
+            studentData.students[i].totalActiveTime);
     }
 
     // Close the file
