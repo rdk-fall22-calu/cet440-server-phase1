@@ -22,13 +22,13 @@ int student_is_active(struct student s)
 int student_set_active(struct student s)
 {
     s.status = ACTIVE;
-    s.lastLoginTime = time(NULL);
+    s.lastLoginTime = time(0);
 }
 
 int student_set_inactive(struct student s)
 {
     s.status = INACTIVE;
-    s.totalActiveTime += time(NULL) - s.lastLoginTime;
+    s.totalActiveTime += time(0) - s.lastLoginTime;
 }
 
 

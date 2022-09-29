@@ -78,13 +78,13 @@ int main() {
             {
                 char *user = active_users[j];
                 int res = strcmp(student.userID, user);
-                printf("Comparing %s to %s: %d\n", student.userID, user, res);
+                printf("\nComparing %s to %s: %d\n", student.userID, user, res);
                 if (res == 0)
                 {
-                    printf("%s's status: %d", student.userID, student.status);
+                    printf("%s's status: %d\n", student.userID, student.status);
                     if (student.status == INACTIVE)
                     {
-                        printf("Setting %s to active.", student.userID );
+                        printf("Setting %s to active.\n", student.userID );
                         student_set_active(student);
                         changes_made = TRUE;
                     }
@@ -93,7 +93,7 @@ int main() {
                 {
                     if (student.status == ACTIVE)
                     {
-                        printf("Setting %s to inactive.", student.userID );
+                        printf("Setting %s to inactive.\n", student.userID );
                         student_set_inactive(student);
                         changes_made = TRUE;
                     }
