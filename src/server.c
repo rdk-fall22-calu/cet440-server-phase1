@@ -89,6 +89,7 @@ int main() {
                         changes_made = TRUE;
                         printf("%s set to status %d at time %d", 
                             student.userID, student.status, student.lastLoginTime);
+                        break;
                     }
                 } 
                 else 
@@ -98,6 +99,7 @@ int main() {
                         printf("Setting %s to inactive.\n", student.userID );
                         student_set_inactive(&student);
                         changes_made = TRUE;
+                        break;
                     }
                 }
             }
