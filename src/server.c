@@ -62,11 +62,14 @@ int main() {
         while( fgets(result, sizeof(result), fpipe) != NULL )
         {
             token = strtok(result, " ");
-            strcpy(active_users[active_users_count], token);
+            printf("%s\n", token);
+            //strcpy(active_users[active_users_count], token);
             active_users_count++;
         }
         
         pclose(fpipe);
+
+        exit(0);
 
         // Loop through all users in student data
         for (int i = 0; i < NUM_STUDENTS; i++)
