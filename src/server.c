@@ -48,8 +48,9 @@ int main() {
     char *command = "who";
     char result[1024] = {0x0};
    
+    int cont = TRUE;
     // Loop to poll activity and update data
-    while ( TRUE )
+    while ( cont )
     {
         // Run who command to get all active users
         if ( 0 == (fpipe = (FILE*)popen(command, "r")))
@@ -109,6 +110,7 @@ int main() {
 
         // Sleep for 1 second
         sleep(1);
+        cont = FALSE;
     }
 
     // Detach the shared memory
