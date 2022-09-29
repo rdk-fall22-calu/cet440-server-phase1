@@ -29,7 +29,6 @@ int student_set_active(struct student *s)
 int student_set_inactive(struct student *s)
 {
     s->status = INACTIVE;
-    s->totalActiveTime += time(0) - s->lastLoginTime;
 }
 
 

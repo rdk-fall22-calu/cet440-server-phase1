@@ -73,31 +73,33 @@ int main() {
         // Loop through all users in student data
         for (int i = 0; i < NUM_STUDENTS; i++)
         {
-            struct student student = student_data.students[i];
+            struct student *student = &(student_data.students[i]);
             for (int j = 0; j < active_users_count; j++)
             {
                 char *user = active_users[j];
-                int res = strcmp(student.userID, user);
-                printf("\nComparing %s to %s: %d\n", student.userID, user, res);
+                int res = strcmp(student->userID, user);
+                printf("\nComparing %s to %s: %d\n", student->userID, user, res);
                 if (res == 0)
                 {
-                    printf("%s's status: %d\n", student.userID, student.status);
-                    if (student.status == INACTIVE)
+                    printf("%s's status: %d\n", student->userID, student->status);
+                    if (student->status == INACTIVE)
                     {
-                        printf("Setting %s to active.\n", student.userID );
-                        student_set_active(&student);
+                        printf("Setting %s to active.\n", student->userID );
+                        student_set_active(student);
                         changes_made = TRUE;
                         printf("%s set to status %d at time %d", 
-                            student.userID, student.status, student.lastLoginTime);
+                            student->userID, student->status, student->lastLoginTime);
                         break;
                     }
+                    if (student->status == ACTIVE)
+                        student->totalActiveTime+=1000;
                 } 
                 else 
                 {
-                    if (student.status == ACTIVE)
+                    if (student->status == ACTIVE)
                     {
-                        printf("Setting %s to inactive.\n", student.userID );
-                        student_set_inactive(&student);
+                        printf("Setting %s to inactive.\n", student->userID );
+                        student_set_inactive(student);
                         changes_made = TRUE;
                         break;
                     }
