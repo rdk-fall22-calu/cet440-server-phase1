@@ -81,6 +81,7 @@ int main() {
                 printf("Comparing %s to %s: %d\n", student.userID, user, res);
                 if (res == 0)
                 {
+                    printf("%s's status: %d", student.userID, student.status);
                     if (student.status == INACTIVE)
                     {
                         printf("Setting %s to active.", student.userID );
