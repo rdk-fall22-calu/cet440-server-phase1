@@ -85,7 +85,7 @@ int main() {
                     if (student.status == INACTIVE)
                     {
                         printf("Setting %s to active.\n", student.userID );
-                        student_set_active(student);
+                        student_set_active(&student);
                         changes_made = TRUE;
                     }
                 } 
@@ -94,7 +94,7 @@ int main() {
                     if (student.status == ACTIVE)
                     {
                         printf("Setting %s to inactive.\n", student.userID );
-                        student_set_inactive(student);
+                        student_set_inactive(&student);
                         changes_made = TRUE;
                     }
                 }

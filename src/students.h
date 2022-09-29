@@ -48,8 +48,8 @@ struct students {
 
 
 int student_is_active(struct student s);
-int student_set_active(struct student s);
-int student_set_inactive(struct student s);
+int student_set_active(struct student *s);
+int student_set_inactive(struct student *s);
 
 
 #endif 
