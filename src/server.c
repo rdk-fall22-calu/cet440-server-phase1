@@ -61,15 +61,16 @@ int main() {
         active_users_count = 0;
         while( fgets(result, sizeof(result), fpipe) != NULL )
         {
+            printf("%s\n", result);
             token = strtok(result, " ");
             printf("%s\n", token);
-            //strcpy(active_users[active_users_count], token);
+            strcpy(active_users[active_users_count], token);
             active_users_count++;
         }
         
         pclose(fpipe);
 
-        exit(0);
+        /*
 
         // Loop through all users in student data
         for (int i = 0; i < NUM_STUDENTS; i++)
@@ -111,6 +112,8 @@ int main() {
 
         // Sleep for 1 second
         sleep(1);
+
+        */
     }
 
     // Detach the shared memory
