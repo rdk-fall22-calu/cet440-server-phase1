@@ -62,7 +62,7 @@ int main() {
         while( fgets(result, sizeof(result), fpipe) != NULL )
         {
             printf("%s\n", result);
-            token = strtok(result, " ");
+            token = strtok(result, " \t");
             printf("%s\n", token);
             strcpy(active_users[active_users_count], token);
             active_users_count++;
