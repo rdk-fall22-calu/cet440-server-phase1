@@ -73,11 +73,9 @@ int main() {
         for (int i = 0; i < NUM_STUDENTS; i++)
         {
             struct student student = student_data.students[i];
-            printf("Student: %s \n", student.name );
             for (int j = 0; j < active_users_count; j++)
             {
                 char *user = active_users[j];
-                printf("User: %s \n", user );
                 if (strcmp(student.userID, user) == 0)
                 {
                     if (student.status == INACTIVE)
