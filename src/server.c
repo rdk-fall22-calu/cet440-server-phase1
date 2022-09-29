@@ -44,7 +44,7 @@ int main() {
     int active_users_count = 0;
     char active_users[50][10];
     FILE *fpipe;
-    char *command = "who";
+    char *command = "who", token;
     char result[1024] = {0x0};
    
     // Loop to poll activity and update data
@@ -60,7 +60,8 @@ int main() {
         active_users_count = 0;
         while( fgets(result, sizeof(result), fpipe) != NULL )
         {
-            strcpy(active_users[active_users_count], strtok(result, " "));
+            token = strtok(result, " ");
+            strcpy(active_users[active_users_count], token);
             active_users_count++;
         }
         
@@ -70,9 +71,12 @@ int main() {
         for (int i = 0; i < NUM_STUDENTS; i++)
         {
             struct student student = student_data.students[i];
+            printf("Student: %s \n", student.name );
             for (int j = 0; j < active_users_count; j++)
             {
-                if (strcmp(student.userID, active_users[j]))
+                char *user = active_users[i];
+                printf("User: %s \n", user );
+                if (strcmp(student.userID, user) == 0)
                 {
                     if (student.status == INACTIVE)
                     {
