@@ -84,10 +84,11 @@ int main() {
                     {
                         student_set_active(student);
                         changes_made = TRUE;
-                        break;
                     }
                     if (student->status == ACTIVE)
                         student->totalActiveTime+=1000;
+                    if (changes_made)
+                        break;
                 } 
                 else 
                 {
