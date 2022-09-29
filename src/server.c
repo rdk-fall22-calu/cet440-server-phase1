@@ -74,30 +74,34 @@ int main() {
         for (int i = 0; i < NUM_STUDENTS; i++)
         {
             struct student *student = &(student_data.students[i]);
+            int student_is_active = FALSE;
             for (int j = 0; j < active_users_count; j++)
             {
                 char *user = active_users[j];
                 int res = strcmp(student->userID, user);
                 if (res == 0)
+                    student_is_active = TRUE;
+            }
+
+            if (student_is_active)
+            {
+                if (student->status == INACTIVE)
                 {
-                    if (student->status == INACTIVE)
-                    {
-                        student_set_active(student);
-                        changes_made = TRUE;
-                    }
-                    if (student->status == ACTIVE)
-                        student->totalActiveTime+=1000;
-                    if (changes_made)
-                        break;
-                } 
-                else 
+                    student_set_active(student);
+                    changes_made = TRUE;
+                }
+                
+                student->totalActiveTime+=1000;
+                if (changes_made)
+                    break;
+            } 
+            else 
+            {
+                if (student->status == ACTIVE)
                 {
-                    if (student->status == ACTIVE)
-                    {
-                        student_set_inactive(student);
-                        changes_made = TRUE;
-                        break;
-                    }
+                    student_set_inactive(student);
+                    changes_made = TRUE;
+                    break;
                 }
             }
         }
