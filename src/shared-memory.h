@@ -15,8 +15,8 @@
 
 #include "students.h"
 
-void setup_shared_memory();
-int detach_shared_memory();
-void cpy_student_data_to_shared_memory(struct students students);
+void setup_shared_memory();     //Get the ID for the shared memory, ensure it was created and then allocates it
+int detach_shared_memory();   //Checks if memory is cleared correctly
+void cpy_student_data_to_shared_memory(struct students students);   // copies student data to the shared memory enviorment 
 
 #endif
