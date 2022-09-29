@@ -101,6 +101,7 @@ int main() {
         // Save the data after making any changes
         if (changes_made)
         {
+            printf("Saving student data changes.\n");
             student_data_save(student_data);
             changes_made = FALSE;
         }
