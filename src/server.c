@@ -47,10 +47,6 @@ int main() {
     FILE *fpipe;
     char *command = "who", token;
     char result[1024] = {0x0};
-
-    for (int i=0; i < 50; i++)
-        for (int j = 0; j < 10; j++)
-            active_users[i][j] = 'a';
    
     // Loop to poll activity and update data
     while ( TRUE )
@@ -66,8 +62,7 @@ int main() {
         while( fgets(result, sizeof(result), fpipe) != NULL )
         {
             token = strtok(result, " ");
-            strncpy(active_users[active_users_count], token, sizeof token);
-            printf("%s\n", active_users[active_users_count]);
+            strcpy(active_users[active_users_count], token);
             active_users_count++;
         }
         
