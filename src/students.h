@@ -43,13 +43,13 @@ typedef struct student {
 } Student;
 
 struct students {
-    struct student students[NUM_STUDENTS];
+    struct student students[NUM_STUDENTS];      // create a struct of students 
 };
 
 
-int student_is_active(struct student s);
-int student_set_active(struct student *s);
-int student_set_inactive(struct student *s);
+int student_is_active(struct student s);                // returns true is student is active 
+int student_set_active(struct student *s);          // sets the status to active after a who command is parsed and if the student status needed to be changed
+int student_set_inactive(struct student *s);        // sets the status to inactive after a who command is parsed and if the student status needed to be changed 
 
 
 #endif 
