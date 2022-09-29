@@ -45,7 +45,7 @@ int main() {
     int active_users_count = 0;
     char active_users[50][10];
     FILE *fpipe;
-    char *command = "who", token;
+    char *command = "who";
     char result[1024] = {0x0};
    
     // Loop to poll activity and update data
@@ -61,6 +61,7 @@ int main() {
         active_users_count = 0;
         while( fgets(result, sizeof(result), fpipe) != NULL )
         {
+            char *token;
             printf("%s\n", result);
             token = strtok(result, " \t");
             printf("%s\n", token);
