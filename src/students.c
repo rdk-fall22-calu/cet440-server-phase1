@@ -23,7 +23,6 @@ int student_set_active(struct student *s)
 {
     s->status = ACTIVE;
     s->lastLoginTime = time(0);
-    printf("%s set to status %d at time %d", s->userID, s->status, s->lastLoginTime);
 }
 
 int student_set_inactive(struct student *s)
