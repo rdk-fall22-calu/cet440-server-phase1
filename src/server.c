@@ -65,7 +65,7 @@ int main() {
             printf("%s\n", result);
             token = strtok(result, " \t");
             printf("%s\n", token);
-            //strcpy(active_users[active_users_count], token);
+            strcpy(active_users[active_users_count], token);
             active_users_count++;
         }
         
