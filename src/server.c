@@ -50,15 +50,12 @@ int main() {
     // Loop to poll activity and update data
     while ( TRUE )
     {
-        printf("In loop");
-
         // Run who command to get all active users
         if ( 0 == (fpipe = (FILE*)popen(command, "r")))
         {
             perror("popen() failed.");
             exit(EXIT_FAILURE);
         }
-        printf("Opened pipe");
 
         active_users_count = 0;
         while( fgets(result, sizeof(result), fpipe) != NULL )
@@ -67,21 +64,17 @@ int main() {
             active_users_count++;
             printf("%s\n", active_users[active_users_count]);
         }
-        printf("Got users");
         
         pclose(fpipe);
-        printf("Closed pipe");
 
         // Loop through all users in student data
         for (int i = 0; i < NUM_STUDENTS; i++)
         {
-            printf("Comparing students");
             struct student student = student_data.students[i];
             for (int j = 0; j < active_users_count; j++)
             {
                 if (strcmp(student.userID, active_users[j]))
                 {
-                    printf("Yes this student");
                     if (student.status == INACTIVE)
                     {
                         student_set_active(student);
@@ -90,7 +83,6 @@ int main() {
                 } 
                 else 
                 {
-                    printf("Not this student");
                     if (student.status == ACTIVE)
                     {
                         student_set_inactive(student);
