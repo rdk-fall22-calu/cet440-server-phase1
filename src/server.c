@@ -87,6 +87,8 @@ int main() {
                         printf("Setting %s to active.\n", student.userID );
                         student_set_active(&student);
                         changes_made = TRUE;
+                        printf("%s set to status %d at time %d", 
+                            student.userID, student.status, student.lastLoginTime);
                     }
                 } 
                 else 
