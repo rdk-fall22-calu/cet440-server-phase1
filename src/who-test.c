@@ -10,7 +10,7 @@ int main()
     int active_users_count;
     char *command = "who";
     char result[1024]={0x0};
-    char *active_users[50][50];
+    char active_users[50][50];
     char *token;
 
     if (0 == (fpipe = (FILE*)popen(command, "r")))
@@ -24,7 +24,7 @@ int main()
     {
         token = strtok(result, " ");
         printf("token: %s\n", token);
-        strcpy(active_users[active_users_count], token);
+        memcpy(active_users[active_users_count], token);
         active_users_count++;
         printf("%s\n", active_users[active_users_count]);
     }
