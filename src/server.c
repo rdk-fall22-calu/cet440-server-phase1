@@ -76,7 +76,7 @@ int main() {
             printf("Student: %s \n", student.name );
             for (int j = 0; j < active_users_count; j++)
             {
-                char *user = active_users[i];
+                char *user = active_users[j];
                 printf("User: %s \n", user );
                 if (strcmp(student.userID, user) == 0)
                 {
