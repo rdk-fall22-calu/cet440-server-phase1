@@ -24,7 +24,7 @@ int main()
     {
         token = strtok(result, " ");
         printf("token: %s\n", token);
-        memcpy(active_users[active_users_count], token);
+        strcpy(active_users[active_users_count], token);
         active_users_count++;
         printf("%s\n", active_users[active_users_count]);
     }
