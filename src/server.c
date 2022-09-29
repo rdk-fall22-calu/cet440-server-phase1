@@ -92,8 +92,6 @@ int main() {
                 }
                 
                 student->totalActiveTime+=1000;
-                if (changes_made)
-                    break;
             } 
             else 
             {
@@ -101,7 +99,6 @@ int main() {
                 {
                     student_set_inactive(student);
                     changes_made = TRUE;
-                    break;
                 }
             }
         }
