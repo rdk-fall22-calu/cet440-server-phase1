@@ -61,11 +61,11 @@ struct students student_data_load()
 
         // Get the Last Login Time
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent].lastLoginTime = atol(token);
+        studentData.students[currentStudent].lastLoginTime = atoi(token);
 
         // Get the Total Time Active
         token = strtok(NULL, DELIMITER);
-        studentData.students[currentStudent].totalActiveTime = atol(token);
+        studentData.students[currentStudent].totalActiveTime = atoi(token);
         
         // Increment Student Counter
         currentStudent++;

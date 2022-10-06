@@ -25,7 +25,7 @@ int main(){
 	else
 	{
 		printf("Grabbing shared data");
-        y= (struct students *) shmat( shm_id, 0, 0 );
+        y= (struct students *) shmat( shm_id, 0, SHM_RDONLY );
 	}
 
     for(i = 0;i<NUM_STUDENTS;i++)
@@ -39,7 +39,7 @@ int main(){
     	students_read[i].totalActiveTime = y->students[i].totalActiveTime;
     }
 	printstruct(students_read);
-	
+
     shmdt( (void *) y );
 
     return( 0 );
