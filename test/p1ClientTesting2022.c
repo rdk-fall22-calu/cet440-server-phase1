@@ -23,7 +23,9 @@ int main(){
 		exit(-1);
 	}
 	else
+	{
         y= (struct students *) shmat( shm_id, 0, 0 );
+	}
 
 	for (i = 0; i < NUM_STUDENTS; i++)
 	{
