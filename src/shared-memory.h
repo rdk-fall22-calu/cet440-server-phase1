@@ -10,7 +10,7 @@
 #ifndef __SHARED_MEMORY_H__
 #define __SHARED_MEMORY_H__
 
-#define SHARED_MEMORY_KEY 0x7700 + 01
+#define SHARED_MEMORY_KEY 0x77000 + 01
 #define IPC_RESULT_ERROR (-1)           // error returning -1 if sharded id could not be created
 
 #include "students.h"

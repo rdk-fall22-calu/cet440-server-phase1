@@ -70,7 +70,14 @@ void cpy_student_data_to_shared_memory(struct students students)
 {
     for (int i = 0; i < NUM_STUDENTS; i++)
     {
-        shared_data->students[i] = students.students[i];
+        strcpy(shared_data->students[i].userID, students.students[i].userID);
+        strcpy(shared_data->students[i].name, students.students[i].name);
+
+        shared_data->students[i].age = students.students[i].age;
+        shared_data->students[i].gpa = students.students[i].gpa;
+        shared_data->students[i].lastLoginTime = students.students[i].lastLoginTime;
+        shared_data->students[i].totalActiveTime = students.students[i].totalActiveTime;
+        shared_data->students[i].status = students.students[i].status;
     }
 }
 
