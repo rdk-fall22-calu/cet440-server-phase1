@@ -66,11 +66,17 @@ int detach_shared_memory()
 }
 
 
-void cpy_student_data_to_shared_memory(struct students students)
+void cpy_student_data_to_shared_memory(struct students y)
 {
     for (int i = 0; i < NUM_STUDENTS; i++)
     {
-        shared_data->students[i] = students.students[i];
+        strcpy(shared_data.students[i].userID,y->students[i].userID) ;
+    	strcpy(shared_data.students[i].name, y->students[i].name);
+    	shared_data->students[i].age = y->students[i].age;
+    	shared_data->students[i].gpa = y->students[i].gpa;
+    	shared_data->students[i].status = y->students[i].status;
+    	shared_data->students[i].lastLoginTime = y->students[i].lastLoginTime;
+    	shared_data->students[i].totalActiveTime = y->students[i].totalActiveTime;
         printf("%s: %d", shared_data->students[i].name, shared_data->students[i].gpa);
     }
 }
