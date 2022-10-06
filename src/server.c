@@ -37,6 +37,9 @@ int main() {
         student_data = student_data_init();
     }
     changes_made = TRUE;
+    
+    // Create the shared memory
+    setup_shared_memory();
 
     // Setup who command piping to obtain active users list
     int active_users_count = 0;
@@ -88,8 +91,8 @@ int main() {
                     changes_made = TRUE;
                 }
                 
-                // Increment Active Time by 5 seconds
-                student->totalActiveTime+=5000;
+                // Increment Active Time by 1 second
+                student->totalActiveTime+=1000;
             } 
             else 
             {
@@ -107,18 +110,12 @@ int main() {
             student_data_save(student_data);
             changes_made = FALSE;
         }
-    
-        // Attach to the shared memory
-        setup_shared_memory();
 
         // Update the shared memory
         cpy_student_data_to_shared_memory(student_data);
 
-        // Detach from the shared memory
-        detach_shared_memory();
-
-        // Sleep for 5 seconds
-        sleep(5);
+        // Sleep for 1 second
+        sleep(1);
     }
 
     // Detach the shared memory
