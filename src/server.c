@@ -88,8 +88,8 @@ int main() {
                     changes_made = TRUE;
                 }
                 
-                // Increment Active Time by 1 second
-                student->totalActiveTime+=1000;
+                // Increment Active Time by 5 seconds
+                student->totalActiveTime+=5000;
             } 
             else 
             {
@@ -117,8 +117,8 @@ int main() {
         // Detach from the shared memory
         detach_shared_memory();
 
-        // Sleep for 1 second
-        sleep(1);
+        // Sleep for 5 seconds
+        sleep(5);
     }
 
     // Detach the shared memory
