@@ -25,14 +25,15 @@ int main(){
 	else
         y= (struct students *) shmat( shm_id, 0, 0 );
 
-	printf("%s %s %d %d %d %d %d\n",
-		y->students[i].name,
-		y->students[i].name,
-		y->students[i].age,
-		y->students[i].gpa,
-		y->students[i].lastLoginTime,
-		y->students[i].totalActiveTime,
-		y->students[i].status);
+	for (i = 0; i < NUM_STUDENTS; i++)
+		printf("%s %s %d %d %d %d %d\n",
+			y->students[i].userID,
+			y->students[i].name,
+			y->students[i].age,
+			y->students[i].gpa,
+			y->students[i].lastLoginTime,
+			y->students[i].totalActiveTime,
+			y->students[i].status);
 
 /*
     for(i = 0;i<NUM_STUDENTS;i++)

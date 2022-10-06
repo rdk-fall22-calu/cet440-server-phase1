@@ -81,7 +81,7 @@ void cpy_student_data_to_shared_memory(struct students students)
 
         /*
         printf("%s %s %d %d %d %d %d\n",
-            shared_data->students[i].name,
+            shared_data->students[i].userID,
             shared_data->students[i].name,
             shared_data->students[i].age,
             shared_data->students[i].gpa,
