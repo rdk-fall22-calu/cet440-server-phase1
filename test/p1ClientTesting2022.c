@@ -24,6 +24,7 @@ int main(){
 	}
 	else
 	{
+		printf("Grabbing shared data");
         y= (struct students *) shmat( shm_id, 0, 0 );
 	}
 
