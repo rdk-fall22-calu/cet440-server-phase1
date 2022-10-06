@@ -15,7 +15,7 @@ int main(){
 	struct student students_read[NUM_STUDENTS];
 
     if (shm_id == 0) 
-        shm_id = shmget(SHMKEY,0,0);;
+        shm_id = shmget(SHMKEY,0,0);
 	printf( "shmat created \n");
 
 	if(shm_id == -1){
@@ -27,6 +27,8 @@ int main(){
 		printf("Grabbing shared data");
         y= (struct students *) shmat( shm_id, 0, 0 );
 	}
+
+	sleep(1);
 
 	for (i = 0; i < NUM_STUDENTS; i++)
 	{
