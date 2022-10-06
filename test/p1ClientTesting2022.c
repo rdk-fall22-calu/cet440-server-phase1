@@ -30,19 +30,6 @@ int main(){
 
 	sleep(1);
 
-	for (i = 0; i < NUM_STUDENTS; i++)
-	{
-		printf("Printing student %d", i);
-		printf("%s %s %d %d %d %d %d\n",
-		y->students[i].userID,
-		y->students[i].name,
-		y->students[i].age,
-		y->students[i].gpa,
-		y->students[i].lastLoginTime,
-		y->students[i].totalActiveTime,
-		y->students[i].status);
-	}
-
 /*
     for(i = 0;i<NUM_STUDENTS;i++)
     {
