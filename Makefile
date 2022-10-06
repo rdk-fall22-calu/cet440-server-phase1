@@ -1,2 +1,2 @@
 build:
-	gcc -std=c99 src/*.h src/*.c -o build/server
+	gcc -std=c99 *.h *.c -o server

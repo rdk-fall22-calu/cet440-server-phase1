@@ -91,6 +91,7 @@ int main() {
                     changes_made = TRUE;
                 }
                 
+                // Increment Active Time by 1 second
                 student->totalActiveTime+=1000;
             } 
             else 
