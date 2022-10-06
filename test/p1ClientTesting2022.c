@@ -28,9 +28,6 @@ int main(){
         y= (struct students *) shmat( shm_id, 0, 0 );
 	}
 
-	sleep(1);
-
-/*
     for(i = 0;i<NUM_STUDENTS;i++)
     {
     	strcpy(students_read[i].userID,y->students[i].userID) ;
@@ -42,7 +39,7 @@ int main(){
     	students_read[i].totalActiveTime = y->students[i].totalActiveTime;
     }
 	printstruct(students_read);
-*/	
+	
     shmdt( (void *) y );
 
     return( 0 );
