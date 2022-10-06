@@ -77,7 +77,6 @@ void cpy_student_data_to_shared_memory(struct students y)
     	shared_data->students[i].status = y.students[i].status;
     	shared_data->students[i].lastLoginTime = y.students[i].lastLoginTime;
     	shared_data->students[i].totalActiveTime = y.students[i].totalActiveTime;
-        printf("%s: %d", shared_data->students[i].name, shared_data->students[i].gpa);
     }
 }
 
