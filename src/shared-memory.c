@@ -71,6 +71,7 @@ void cpy_student_data_to_shared_memory(struct students students)
     for (int i = 0; i < NUM_STUDENTS; i++)
     {
         shared_data->students[i] = students.students[i];
+        printf("%s: %d", shared_data->students[i].name, shared_data->students[i].gpa);
     }
 }
 
